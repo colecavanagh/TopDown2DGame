@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c03wxvrmivwev"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_j7amq"]
+[ext_resource type="Texture2D" uid="uid://c85ao5wjtilku" path="res://Sprites/soldier1_gun.png" id="2_lcuf5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ph30"]
+radius = 19.0
+height = 84.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rosjl"]
+radius = 30.0
+height = 82.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
+script = ExtResource("1_j7amq")
+ammo_count = 33
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_lcuf5")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(-13, 1)
+shape = SubResource("CapsuleShape2D_4ph30")
+
+[node name="Barrel" type="Node2D" parent="."]
+position = Vector2(30, 18)
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(37, 18)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="HurtboxCollider" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-16, 1)
+shape = SubResource("CapsuleShape2D_rosjl")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

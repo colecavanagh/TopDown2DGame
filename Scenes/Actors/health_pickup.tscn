@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ipohq2alxbx8"]
+
+[ext_resource type="PackedScene" uid="uid://d3vvmfso1qs5m" path="res://Scenes/Actors/pickup_item.tscn" id="1_0eyjs"]
+[ext_resource type="Texture2D" uid="uid://c7d08xuhywb47" path="res://Sprites/heart pixel art 64x64.png" id="2_uqenn"]
+[ext_resource type="Script" path="res://Scripts/health_pickup.gd" id="2_wjc4e"]
+
+[node name="HealthPickup" instance=ExtResource("1_0eyjs")]
+script = ExtResource("2_wjc4e")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(3.8147e-06, 3.8147e-06)
+texture = ExtResource("2_uqenn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

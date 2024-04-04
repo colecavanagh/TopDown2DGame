@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dahm4feew16j6"]
+
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MenuButtons/StartButton.tscn" id="1_3cwgq"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_4r0i8"]
+[ext_resource type="Texture2D" uid="uid://dp75p2y4r2req" path="res://Sprites/Screenshot 2023-10-10 at 4.11.07 PM.jpg" id="2_5dcff"]
+[ext_resource type="PackedScene" uid="uid://dcv5rnpe1ivjf" path="res://Scenes/Menus/MenuButtons/OptionsButton.tscn" id="2_jtu18"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MenuButtons/QuitButton.tscn" id="3_14cfc"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4r0i8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_5dcff")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -274.0
+offset_right = 360.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start" parent="Menu" instance=ExtResource("1_3cwgq")]
+custom_minimum_size = Vector2(720, 180)
+layout_mode = 2
+
+[node name="Options" parent="Menu" instance=ExtResource("2_jtu18")]
+custom_minimum_size = Vector2(720, 180)
+layout_mode = 2
+
+[node name="Quit" parent="Menu" instance=ExtResource("3_14cfc")]
+custom_minimum_size = Vector2(720, 180)
+layout_mode = 2
+
+[connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]

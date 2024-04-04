@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmd3x3go66mku"]
+
+[ext_resource type="PackedScene" uid="uid://bgvudewicitvi" path="res://Scenes/Menus/MenuButtons/MenuButton.tscn" id="1_1ym7m"]
+
+[node name="Button" instance=ExtResource("1_1ym7m")]
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+
+[node name="Label" parent="." index="0"]
+text = "Main Menu
+"

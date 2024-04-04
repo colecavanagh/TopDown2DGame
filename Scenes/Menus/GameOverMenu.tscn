@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://77cemifjgm0i"]
+
+[ext_resource type="Script" path="res://Scripts/GameOverMenu.gd" id="1_a4wcu"]
+[ext_resource type="PackedScene" uid="uid://cha6xcgcsopml" path="res://Scenes/Menus/MenuButtons/RestartButton.tscn" id="1_b7g6r"]
+[ext_resource type="PackedScene" uid="uid://cmd3x3go66mku" path="res://Scenes/Menus/MenuButtons/MainMenuButton.tscn" id="3_hfeoa"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a4wcu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(720, 360)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RestartButton" parent="VBoxContainer" instance=ExtResource("1_b7g6r")]
+custom_minimum_size = Vector2(720, 180)
+layout_mode = 2
+
+[node name="MainMenuButton" parent="VBoxContainer" instance=ExtResource("3_hfeoa")]
+custom_minimum_size = Vector2(720, 180)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

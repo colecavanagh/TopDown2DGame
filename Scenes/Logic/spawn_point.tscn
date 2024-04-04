@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctn3tmpyndift"]
+
+[ext_resource type="Script" path="res://Scripts/spawn_point.gd" id="1_gsf6f"]
+
+[node name="SpawnPoint" type="Node2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("1_gsf6f")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnuapgxqr2112"]
+
+[ext_resource type="Texture2D" uid="uid://c0pj02cxa74a0" path="res://Sprites/UI_Flat_Fillbar_02_Flat.png" id="1_ioy6f"]
+[ext_resource type="Theme" uid="uid://d0potiw3qbf5n" path="res://Scenes/GUI/default_them.tres" id="2_rt1xi"]
+
+[node name="GUILabel" type="NinePatchRect"]
+offset_right = 448.0
+offset_bottom = 128.0
+texture = ExtResource("1_ioy6f")
+region_rect = Rect2(2.08165e-12, 11, 30, 10)
+patch_margin_left = 10
+patch_margin_right = 10
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -53.0
+offset_right = 119.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_rt1xi")
+theme_override_font_sizes/font_size = 75
+text = "Wave: 1"
+horizontal_alignment = 1
+vertical_alignment = 1

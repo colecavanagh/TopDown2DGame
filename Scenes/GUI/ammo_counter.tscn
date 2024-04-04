@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdmnqta3qkhn8"]
+
+[ext_resource type="PackedScene" path="res://Scenes/GUI/gui_counter.tscn" id="1_3samg"]
+[ext_resource type="Texture2D" uid="uid://bkwgb2ylqe8m3" path="res://Sprites/kisspng-ammunition-computer-icons-bullet-clip-art-balas-5b36148d218741.2111738415302708611373.png" id="2_ybg1d"]
+
+[node name="GUI Counter" instance=ExtResource("1_3samg")]
+
+[node name="Label" parent="." index="0"]
+offset_left = -75.0
+offset_right = -11.0
+text = "99
+"
+
+[node name="Image" parent="." index="1"]
+texture = ExtResource("2_ybg1d")

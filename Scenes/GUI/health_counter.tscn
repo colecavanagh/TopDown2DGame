@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://buxc5rpwicc6"]
+
+[ext_resource type="PackedScene" path="res://Scenes/GUI/gui_counter.tscn" id="1_bcqgc"]
+
+[node name="GUI Counter" instance=ExtResource("1_bcqgc")]

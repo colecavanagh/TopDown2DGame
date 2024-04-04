@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtm5bc72vyfmx"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8sxyx"]
+[ext_resource type="Texture2D" uid="uid://bpd3xgkv8v4ik" path="res://Sprites/manBrown_hold.png" id="2_h74ly"]
+[ext_resource type="Script" path="res://Scripts/Enemy AI.gd" id="3_p70b3"]
+[ext_resource type="Script" path="res://Scripts/Loot Drop.gd" id="4_x7cys"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ds3xe"]
+radius = 15.0
+height = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f2jbo"]
+radius = 96.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_8sxyx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_h74ly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("CapsuleShape2D_ds3xe")
+
+[node name="Enemy AI" type="Node2D" parent="."]
+script = ExtResource("3_p70b3")
+approach_speed = 200.0
+
+[node name="DetectionZone" type="Area2D" parent="Enemy AI"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy AI/DetectionZone"]
+scale = Vector2(10, -10)
+shape = SubResource("CircleShape2D_f2jbo")
+
+[node name="Loot Drop" type="Node2D" parent="."]
+script = ExtResource("4_x7cys")
+
+[connection signal="body_entered" from="Enemy AI/DetectionZone" to="Enemy AI" method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="Enemy AI/DetectionZone" to="Enemy AI" method="_on_detection_zone_body_exited"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://g5sqrxjnmjtl"]
+
+[ext_resource type="PackedScene" uid="uid://d3vvmfso1qs5m" path="res://Scenes/Actors/pickup_item.tscn" id="1_1q3w7"]
+[ext_resource type="Script" path="res://Scripts/ammo_pickup.gd" id="2_rc4eb"]
+[ext_resource type="Texture2D" uid="uid://bkwgb2ylqe8m3" path="res://Sprites/kisspng-ammunition-computer-icons-bullet-clip-art-balas-5b36148d218741.2111738415302708611373.png" id="3_k1vfk"]
+
+[node name="AmmoPickup" instance=ExtResource("1_1q3w7")]
+script = ExtResource("2_rc4eb")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_k1vfk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
